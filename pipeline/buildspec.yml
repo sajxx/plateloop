@@ -1,0 +1,11 @@
+version: 0.2
+# One CodeBuild project runs the three heavy stages; STAGE, RUN_ID, BASE_VERSION, BUCKET come from the state machine.
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+    commands:
+      - pip install --quiet -r env/pipeline-requirements.txt
+  build:
+    commands:
+      - python pipeline/stage.py "$STAGE"

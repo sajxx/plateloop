@@ -1,0 +1,24 @@
+# 2,000-image training subset; this is the dataset the v1 model was trained on.
+# Paths are relative to the working directory training/paddledet/.
+metric: COCO
+
+num_classes: 1
+
+TrainDataset:
+  name: COCODataSet
+  image_dir: images
+  anno_path: train_2k.json
+  dataset_dir: ../../data/original
+  data_fields: ['image', 'gt_bbox', 'gt_class', 'is_crowd']
+
+EvalDataset:
+  name: COCODataSet
+  image_dir: images
+  anno_path: val.json
+  dataset_dir: ../../data/original
+  allow_empty: true
+
+TestDataset:
+  name: ImageFolder
+  anno_path: val.json
+  dataset_dir: ../../data/original

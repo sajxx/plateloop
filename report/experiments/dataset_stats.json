@@ -1,0 +1,38 @@
+{
+ "train": {
+  "images": 22906,
+  "boxes": 25379,
+  "boxes_per_image": 1.107962979132105,
+  "median_rel_area": 0.019456129807692308,
+  "median_aspect": 1.75,
+  "share_416": 0.8315725137518554,
+  "empty": 0
+ },
+ "val": {
+  "images": 2546,
+  "boxes": 2841,
+  "boxes_per_image": 1.1158680282796543,
+  "median_rel_area": 0.018566244452662722,
+  "median_aspect": 1.7027027027027026,
+  "share_416": 0.8283582089552238,
+  "empty": 0
+ },
+ "train_2k": {
+  "images": 2000,
+  "boxes": 2170,
+  "boxes_per_image": 1.085,
+  "median_rel_area": 0.019606370192307692,
+  "median_aspect": 1.7793650793650793,
+  "share_416": 0.8365,
+  "empty": 0
+ },
+ "golden": {
+  "images": 150,
+  "boxes": 197,
+  "boxes_per_image": 1.3133333333333332,
+  "median_rel_area": 0.004907119326500732,
+  "median_aspect": 1.9090909090909092,
+  "share_416": 0.3933333333333333,
+  "empty": 0
+ }
+}

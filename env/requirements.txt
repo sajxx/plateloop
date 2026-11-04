@@ -1,0 +1,24 @@
+# Local dev/training env (CPU). Python 3.11.
+paddlepaddle==2.6.2
+numpy==1.26.4
+opencv-python==4.11.0.86
+pycocotools==2.0.8
+setuptools<81
+PyYAML
+scipy
+tqdm
+typeguard
+visualdl>=2.2.0
+shapely
+terminaltables
+Cython
+Pillow
+packaging
+scikit-learn
+pyclipper
+imgaug>=0.4.0
+# export / local inference
+paddle2onnx
+onnx
+onnxruntime
+openvino==2026.2.1

@@ -1,0 +1,34 @@
+# Secrets
+.aws/
+
+# Environments and tools
+.venv/
+.tools/
+node_modules/
+
+# Models, datasets and the golden set (kept out of the repo; see README "Setup")
+models/
+data/
+golden/
+
+# Generated output
+__pycache__/
+*.pyc
+cdk.out/
+serving/build/
+pipeline/build/
+app/.shots/
+app/tests/last_run.json
+report/build/work/
+report/build/render/
+report/build/toc_pages.json
+report/figures/*.png
+training/paddledet/output/
+
+# Report documents (binary; the report is submitted separately)
+docs/*.docx
+*.pdf
+
+# Vendored binaries not needed to run the code
+training/paddledet/ppdet/utils/simfang.ttf
+training/paddledet/ppdet/modeling/tests/imgs/

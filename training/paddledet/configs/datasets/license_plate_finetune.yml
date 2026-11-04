@@ -1,0 +1,25 @@
+# Fine-tuning set built by the pipeline's prepare step: about 70% original images and 30% newly collected images.
+# Paths are relative to the working directory training/paddledet/ (override dataset_dir with -o when run elsewhere).
+metric: COCO
+
+num_classes: 1
+
+TrainDataset:
+  name: COCODataSet
+  image_dir: images
+  anno_path: train.json
+  dataset_dir: ../../data/finetune
+  data_fields: ['image', 'gt_bbox', 'gt_class', 'is_crowd']
+  allow_empty: true
+
+EvalDataset:
+  name: COCODataSet
+  image_dir: images
+  anno_path: val.json
+  dataset_dir: ../../data/original
+  allow_empty: true
+
+TestDataset:
+  name: ImageFolder
+  anno_path: val.json
+  dataset_dir: ../../data/original

@@ -1,0 +1,46 @@
+# Single source of truth for the PlateLoop build. Fill in at the start of the AWS session.
+project: plateloop
+aws:
+  region: ap-southeast-2        # new sign-up default for India; ap-south-1 if you used advanced sign-up
+  account_signup_date: 2026-10-26   # approximate; Free plan credits last 6 months from sign-up
+  bucket: plateloop-631603562462
+  prefixes: [raw/, labels/auto/, quarantine/, datasets/, golden/, models/]
+  raw_expiry_days: 30
+alerts:
+  email: palashsharma1910@gmail.com
+  monthly_budget_usd: 20
+tags:
+  project: plateloop
+model:
+  current_version: v1
+  local_dir: models/v1
+  input_size: [416, 416]
+  # from models/v1/paddle_inference/infer_cfg.yml
+  score_threshold: 0.4
+  nms_threshold: 0.5
+  draw_threshold: 0.5
+serving:
+  instance_type: ml.m5.large
+  idle_shutdown_minutes: 30
+training:
+  instance_type: ml.m5.xlarge
+  max_runtime_seconds: 7200
+  original_data_mix: 0.7
+  new_data_mix: 0.3
+labeling:
+  bedrock_model: global.amazon.nova-2-lite-v1:0   # Global inference profile; the model has no in-Region mode in Sydney. EOL no sooner than 2026-12-02
+  accept_iou: 0.5
+  max_nova_only_fraction: 0.3
+  min_precision_gate: 0.90
+release:
+  min_map50_gain: 0.01
+  model_group: plateloop-detector
+retrain_triggers:
+  schedule: weekly
+  new_label_count: 200
+  min_hours_between_runs: 24
+monitoring:
+  min_images: 100
+  min_mean_confidence: 0.70
+  max_no_plate_share: 0.15
+  max_p95_latency_ms: 500
